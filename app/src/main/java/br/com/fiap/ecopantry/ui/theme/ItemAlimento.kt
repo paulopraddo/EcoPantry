@@ -35,7 +35,7 @@ fun ItemAlimento(alimento: Alimento) {
             modifier = Modifier
                 .fillMaxWidth()
                 .background(corStatus.copy(alpha = 0.2f))
-                .padding(16.dp) // Adiciona padding interno para o conteúdo
+                .padding(16.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(modifier = Modifier.weight(1f)) {

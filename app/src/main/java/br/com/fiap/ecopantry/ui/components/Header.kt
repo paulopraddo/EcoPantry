@@ -1,40 +1,31 @@
 package br.com.fiap.ecopantry.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Header(content: @Composable () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .background(Color(0xFFFF9800)),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        // Botão de Filtros à Esquerda
-        Box(modifier = Modifier.padding(start = 8.dp)) {
-            content()
-        }
-
-        // Título Centralizado
-        Spacer(modifier = Modifier.weight(1f))
-        Text(
-            text = "EcoPantry",
-            color = Color.White,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold
+fun Header(title: String) {
+    TopAppBar(
+        title = {
+            Text(
+                text = title,
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center
+            )
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color(0xFFFFA500)
         )
-        Spacer(modifier = Modifier.weight(1f))
-    }
+    )
 }
-
-
